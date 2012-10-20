@@ -2,6 +2,10 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
+ifeq ($(TARGET_DEVICE),maguro)
+    LOCAL_CFLAGS += -DUSES_NAM
+endif
+
 LOCAL_SRC_FILES:=                 \
         AnotherPacketSource.cpp   \
         ATSParser.cpp             \
