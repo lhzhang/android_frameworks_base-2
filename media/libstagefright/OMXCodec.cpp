@@ -235,6 +235,9 @@ static const CodecInfo kDecoderInfo[] = {
 #endif
     { MEDIA_MIMETYPE_IMAGE_JPEG, "OMX.TI.JPEG.decode" },
 //    { MEDIA_MIMETYPE_AUDIO_MPEG, "OMX.TI.MP3.decode" },
+#ifdef USES_NAM
+    //{ MEDIA_MIMETYPE_AUDIO_MPEG, "OMX.ffmpeg.mp3.decoder" },
+#endif
     { MEDIA_MIMETYPE_AUDIO_MPEG, "OMX.google.mp3.decoder" },
 #ifdef WITH_QCOM_LPA
     { MEDIA_MIMETYPE_AUDIO_MPEG, "MP3Decoder" },
@@ -248,6 +251,9 @@ static const CodecInfo kDecoderInfo[] = {
     { MEDIA_MIMETYPE_AUDIO_AMR_WB, "OMX.google.amrwb.decoder" },
 //    { MEDIA_MIMETYPE_AUDIO_AAC, "OMX.Nvidia.aac.decoder" },
     { MEDIA_MIMETYPE_AUDIO_AAC, "OMX.TI.AAC.decode" },
+#ifdef USES_NAM
+    { MEDIA_MIMETYPE_AUDIO_AAC, "OMX.ffmpeg.aac.decoder" },
+#endif
     { MEDIA_MIMETYPE_AUDIO_AAC, "OMX.google.aac.decoder" },
 #ifdef WITH_QCOM_LPA
     { MEDIA_MIMETYPE_AUDIO_AAC, "AACDecoder" },
@@ -2388,7 +2394,8 @@ status_t OMXCodec::allocateBuffersOnPort(OMX_U32 portIndex) {
     }
 
 #ifdef USES_NAM
-    if (def.eDomain == (int)OMX_PortDomainVideo)
+    //if (def.eDomain == (int)OMX_PortDomainVideo)
+    if (def.eDomain == (int)OMX_PortDomainAudio)
         dumpPortStatus(portIndex);
 #else
     // dumpPortStatus(portIndex);
