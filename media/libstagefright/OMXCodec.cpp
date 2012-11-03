@@ -236,7 +236,7 @@ static const CodecInfo kDecoderInfo[] = {
     { MEDIA_MIMETYPE_IMAGE_JPEG, "OMX.TI.JPEG.decode" },
 //    { MEDIA_MIMETYPE_AUDIO_MPEG, "OMX.TI.MP3.decode" },
 #ifdef USES_NAM
-    //{ MEDIA_MIMETYPE_AUDIO_MPEG, "OMX.ffmpeg.mp3.decoder" },
+    { MEDIA_MIMETYPE_AUDIO_MPEG, "OMX.ffmpeg.mp3.decoder" },
 #endif
     { MEDIA_MIMETYPE_AUDIO_MPEG, "OMX.google.mp3.decoder" },
 #ifdef WITH_QCOM_LPA
@@ -2395,7 +2395,7 @@ status_t OMXCodec::allocateBuffersOnPort(OMX_U32 portIndex) {
 
 #ifdef USES_NAM
     //if (def.eDomain == (int)OMX_PortDomainVideo)
-    if (def.eDomain == (int)OMX_PortDomainAudio)
+    //if (def.eDomain == (int)OMX_PortDomainAudio)
         dumpPortStatus(portIndex);
 #else
     // dumpPortStatus(portIndex);
