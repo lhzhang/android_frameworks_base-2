@@ -46,6 +46,7 @@ static const struct {
     { "OMX.ffmpeg.mp3.decoder", "ffmpegadec", "audio_decoder.mp3" },
     { "OMX.ffmpeg.aac.decoder", "ffmpegadec", "audio_decoder.aac" },
     { "OMX.ffmpeg.ac3.decoder", "ffmpegadec", "audio_decoder.ac3" },
+    { "OMX.ffmpeg.wma.decoder", "ffmpegadec", "audio_decoder.wma" },
 #endif
     { "OMX.google.aac.decoder", "aacdec", "audio_decoder.aac" },
     { "OMX.google.amrnb.decoder", "amrdec", "audio_decoder.amrnb" },
