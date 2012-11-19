@@ -321,6 +321,8 @@ static const CodecInfo kDecoderInfo[] = {
     { MEDIA_MIMETYPE_VIDEO_VC1, "OMX.ffmpeg.vc1.decoder" },
     { MEDIA_MIMETYPE_VIDEO_WMV, "OMX.ffmpeg.wmv.decoder" },
     { MEDIA_MIMETYPE_AUDIO_WMA, "OMX.ffmpeg.wma.decoder" },
+    { MEDIA_MIMETYPE_VIDEO_RV, "OMX.ffmpeg.rv.decoder" },
+    { MEDIA_MIMETYPE_AUDIO_RA, "OMX.ffmpeg.ra.decoder" },
 #endif
 };
 
@@ -1939,6 +1941,8 @@ status_t OMXCodec::setVideoOutputFormat(
         compressionFormat = OMX_VIDEO_CodingWMV;
     } else if (!strcasecmp(MEDIA_MIMETYPE_VIDEO_VC1, mime)){
         compressionFormat = OMX_VIDEO_CodingWMV;
+    } else if (!strcasecmp(MEDIA_MIMETYPE_VIDEO_RV, mime)){
+        compressionFormat = OMX_VIDEO_CodingRV;
 #endif
     } else {
         LOGE("Not a supported video mime type: %s", mime);
